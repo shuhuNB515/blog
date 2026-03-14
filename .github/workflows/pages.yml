@@ -26,11 +26,13 @@ jobs:
           npm run build
           touch out/.nojekyll
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
-        with:
-          path: ./out
-
-      - name: Deploy to GitHub Pages
-        id: deployment
-        uses: actions/deploy-pages@v4
+      - name: Deploy to gh-pages branch
+        run: |
+          git config --local user.email "action@github.com"
+          git config --local user.name "GitHub Action"
+          git checkout -B gh-pages
+          cp -r out/* .
+          rm -rf out node_modules .gitignore
+          git add .
+          git commit -m "Deploy to GitHub Pages" || exit 0
+          git push -f origin gh-pages
