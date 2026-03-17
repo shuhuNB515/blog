@@ -21,18 +21,16 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Build and export static site
-        run: |
-          npm run build
-          touch out/.nojekyll
+      - name: Build project
+        run: npm run build
 
-      - name: Deploy to gh-pages branch
+      - name: Deploy to gh-page branch
         run: |
           git config --local user.email "action@github.com"
           git config --local user.name "GitHub Action"
-          git checkout -B gh-pages
+          git checkout -B gh-page
           cp -r out/* .
           rm -rf out node_modules .gitignore
           git add .
           git commit -m "Deploy to GitHub Pages" || exit 0
-          git push -f origin gh-pages
+          git push -f origin gh-page

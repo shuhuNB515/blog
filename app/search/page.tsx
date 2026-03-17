@@ -18,10 +18,12 @@ export default function SearchPage() {
   return (
     <div className="max-w-4xl mx-auto px-4 py-8">
       <div className="fade-in">
-        <h1 className="text-3xl font-bold mb-8 text-center text-white">搜索</h1>
+        <h1 className="text-4xl font-bold mb-12 text-center text-white">
+          <span className="gradient-text">搜索</span> 文章
+        </h1>
         
         <form onSubmit={handleSearch} className="mb-8 fade-in" style={{ animationDelay: '0.2s' }}>
-          <div className="flex gap-2">
+          <div className="flex gap-3">
             <input
               type="text"
               value={searchTerm}
@@ -31,7 +33,7 @@ export default function SearchPage() {
             />
             <button
               type="submit"
-              className="px-6 py-3 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors card-hover"
+              className="btn-primary px-6 py-3"
             >
               搜索
             </button>
@@ -40,18 +42,19 @@ export default function SearchPage() {
         
         {searchResults.length > 0 ? (
           <div className="mt-8 fade-in" style={{ animationDelay: '0.3s' }}>
-            <h2 className="text-xl font-semibold mb-4 text-white">搜索结果</h2>
-            <ul className="space-y-3">
+            <h2 className="text-2xl font-semibold mb-6 text-white">搜索结果</h2>
+            <div className="space-y-4">
               {searchResults.map((result, index) => (
-                <li key={index} className="p-4 border border-gray-700 rounded-md bg-white/5 backdrop-blur-sm fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
+                <div key={index} className="card p-4 card-hover fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
                   {result}
-                </li>
+                </div>
               ))}
-            </ul>
+            </div>
           </div>
         ) : (
-          <div className="mt-8 text-center text-gray-400 fade-in" style={{ animationDelay: '0.3s' }}>
-            {searchTerm ? '未找到相关结果' : '请输入关键词进行搜索'}
+          <div className="mt-16 text-center text-gray-400 fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="text-6xl mb-4">🔍</div>
+            <p className="text-lg">{searchTerm ? '未找到相关结果' : '请输入关键词进行搜索'}</p>
           </div>
         )}
       </div>
