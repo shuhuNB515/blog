@@ -11,11 +11,13 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20'
+          node-version: '22'
           cache: 'npm'
 
       - name: Install dependencies
@@ -31,3 +33,4 @@ jobs:
           publish_dir: ./out
           publish_branch: page
           force_orphan: true
+          commit_message: 'Deploy to GitHub Pages'
