@@ -114,7 +114,9 @@ export default function AboutPage() {
                 </div>
                 <p className="text-gray-300">
                   <span className="font-semibold text-white">邮箱：</span>
-                  <span>your-email@example.com</span>
+                  <a href="mailto:shuhuNB560@stu.mtc.edu.cn" className="text-blue-400 hover:underline">
+                    shuhuNB560@stu.mtc.edu.cn
+                  </a>
                 </p>
               </div>
               <div className="flex items-center gap-3">
@@ -123,8 +125,8 @@ export default function AboutPage() {
                 </div>
                 <p className="text-gray-300">
                   <span className="font-semibold text-white">GitHub：</span>
-                  <a href="https://github.com" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">
-                    github.com/yourusername
+                  <a href="https://github.com/shuhuNB515" className="text-blue-400 hover:underline" target="_blank" rel="noopener noreferrer">
+                    github.com/shuhuNB515
                   </a>
                 </p>
               </div>

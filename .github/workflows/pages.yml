@@ -24,13 +24,10 @@ jobs:
       - name: Build project
         run: npm run build
 
-      - name: Deploy to gh-page branch
-        run: |
-          git config --local user.email "action@github.com"
-          git config --local user.name "GitHub Action"
-          git checkout -B gh-page
-          cp -r out/* .
-          rm -rf out node_modules .gitignore
-          git add .
-          git commit -m "Deploy to GitHub Pages" || exit 0
-          git push -f origin gh-page
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          publish_branch: page
+          force_orphan: true

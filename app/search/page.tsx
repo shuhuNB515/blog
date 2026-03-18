@@ -1,15 +1,45 @@
 'use client';
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import Link from 'next/link';
+import { format } from 'date-fns';
+import { zhCN } from 'date-fns/locale';
+import { getSortedPostsData, Post } from '@/app/lib/posts';
 
 export default function SearchPage() {
   const [searchTerm, setSearchTerm] = useState('');
-  const [searchResults, setSearchResults] = useState<string[]>([]);
+  const [searchResults, setSearchResults] = useState<Post[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [allPosts, setAllPosts] = useState<Post[]>([]);
+  
+  useEffect(() => {
+    // 在客户端获取所有文章数据
+    const fetchPosts = async () => {
+      try {
+        const posts = await getSortedPostsData();
+        setAllPosts(posts);
+      } catch (error) {
+        console.error('获取文章失败:', error);
+      }
+    };
+    
+    fetchPosts();
+  }, []);
   
   const handleSearch = (e: React.FormEvent) => {
     e.preventDefault();
-    // 这里可以添加搜索逻辑，现在只是模拟搜索结果
     if (searchTerm) {
-      setSearchResults([`结果 1: ${searchTerm}`, `结果 2: ${searchTerm}`, `结果 3: ${searchTerm}`]);
+      setIsLoading(true);
+      // 在客户端进行搜索
+      const searchTermLower = searchTerm.toLowerCase();
+      const results = allPosts.filter(post => {
+        return (
+          post.title.toLowerCase().includes(searchTermLower) ||
+          post.description.toLowerCase().includes(searchTermLower) ||
+          post.tags.some(tag => tag.toLowerCase().includes(searchTermLower))
+        );
+      });
+      setSearchResults(results);
+      setIsLoading(false);
     } else {
       setSearchResults([]);
     }
@@ -34,20 +64,46 @@ export default function SearchPage() {
             <button
               type="submit"
               className="btn-primary px-6 py-3"
+              disabled={isLoading}
             >
-              搜索
+              {isLoading ? '搜索中...' : '搜索'}
             </button>
           </div>
         </form>
         
-        {searchResults.length > 0 ? (
+        {isLoading ? (
+          <div className="mt-16 text-center text-gray-400 fade-in" style={{ animationDelay: '0.3s' }}>
+            <div className="text-6xl mb-4">🔍</div>
+            <p className="text-lg">正在搜索...</p>
+          </div>
+        ) : searchResults.length > 0 ? (
           <div className="mt-8 fade-in" style={{ animationDelay: '0.3s' }}>
             <h2 className="text-2xl font-semibold mb-6 text-white">搜索结果</h2>
             <div className="space-y-4">
-              {searchResults.map((result, index) => (
-                <div key={index} className="card p-4 card-hover fade-in" style={{ animationDelay: `${0.4 + index * 0.1}s` }}>
-                  {result}
-                </div>
+              {searchResults.map((post, index) => (
+                <Link 
+                  key={post.id} 
+                  href={`/blog/${post.id}`} 
+                  className="card p-6 card-hover block fade-in" 
+                  style={{ animationDelay: `${0.4 + index * 0.1}s` }}
+                >
+                  <h3 className="text-xl font-semibold mb-2 text-white">{post.title}</h3>
+                  <p className="text-gray-400 mb-4">{post.description}</p>
+                  <div className="flex justify-between items-center">
+                    <time className="text-sm text-gray-500">
+                      {format(new Date(post.date), 'yyyy年MM月dd日', { locale: zhCN })}
+                    </time>
+                    {post.tags.length > 0 && (
+                      <div className="flex gap-2">
+                        {post.tags.map((tag: string, tagIndex: number) => (
+                          <span key={tagIndex} className="bg-blue-900/30 px-2 py-1 rounded text-blue-300 text-xs">
+                            {tag}
+                          </span>
+                        ))}
+                      </div>
+                    )}
+                  </div>
+                </Link>
               ))}
             </div>
           </div>

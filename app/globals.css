@@ -1,11 +1,326 @@
 @import "tailwindcss";
 
 :root {
-  --background: #0a0a1a;
+  --background: #000000;
   --foreground: #ffffff;
   --primary: #3b82f6;
   --secondary: #8b5cf6;
   --accent: #10b981;
+}
+
+/* 浅色模式 */
+.light {
+  --background: #f8fafc;
+  --foreground: #1e293b;
+  --primary: #3b82f6;
+  --secondary: #8b5cf6;
+  --accent: #10b981;
+}
+
+body.light {
+  background: var(--background);
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body.light::before {
+  background: linear-gradient(ellipse at center, #f8fafc 0%, #f1f5f9 100%);
+  opacity: 1;
+}
+
+body.light .card {
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+body.light .card:hover {
+  border-color: rgba(59, 130, 246, 0.6);
+  box-shadow: 0 4px 12px rgba(59, 130, 246, 0.2);
+  background: rgba(255, 255, 255, 0.9);
+}
+
+body.light input {
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body.light input::placeholder {
+  color: rgba(30, 41, 59, 0.6);
+  font-weight: 400;
+}
+
+body.light input:focus {
+  border-color: #3b82f6;
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.2);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+body.light .btn-secondary {
+  border: 1px solid rgba(59, 130, 246, 0.6);
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+body.light .btn-secondary:hover {
+  border-color: #3b82f6;
+  background: rgba(59, 130, 246, 0.1);
+}
+
+body.light ::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+body.light ::-webkit-scrollbar-thumb {
+  background: rgba(59, 130, 246, 0.6);
+}
+
+body.light ::-webkit-scrollbar-thumb:hover {
+  background: rgba(59, 130, 246, 0.8);
+}
+
+body.light nav a {
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+body.light nav a:hover {
+  color: #3b82f6;
+}
+
+body.light .gradient-text {
+  background: linear-gradient(90deg, #3b82f6, #8b5cf6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: 700;
+}
+
+/* 浅色模式下的卡片悬停效果 */
+body.light .card-hover:hover {
+  background-color: rgba(255, 255, 255, 0.95);
+  transform: translateY(-2px);
+}
+
+/* 浅色模式下的文章内容 */
+body.light .prose {
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body.light .prose h1,
+body.light .prose h2,
+body.light .prose h3,
+body.light .prose h4,
+body.light .prose h5,
+body.light .prose h6 {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+body.light .prose a {
+  color: #3b82f6;
+  font-weight: 600;
+}
+
+body.light .prose a:hover {
+  color: #2563eb;
+}
+
+/* 浅色模式下的卡片内容 */
+body.light .card h3 {
+  color: var(--foreground);
+  font-weight: 700;
+  font-size: 18px;
+}
+
+body.light .card p {
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* 浅色模式下的页脚 */
+body.light footer {
+  border-color: rgba(0, 0, 0, 0.1);
+  background: rgba(255, 255, 255, 0.8);
+  padding: 2rem 0;
+}
+
+body.light footer p,
+body.light footer a {
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+body.light footer a:hover {
+  color: #3b82f6;
+}
+
+/* 浅色模式下的按钮 */
+body.light button {
+  color: var(--foreground);
+  font-weight: 600;
+  font-size: 16px;
+}
+
+/* 浅色模式下的链接 */
+body.light a {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+body.light a:hover {
+  color: #3b82f6;
+}
+
+/* 浅色模式下的导航链接 */
+body.light nav a {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.1), rgba(99, 102, 241, 0.1)) !important;
+  border: 1px solid rgba(59, 130, 246, 0.3) !important;
+  color: var(--foreground) !important;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.05) !important;
+}
+
+body.light nav a:hover {
+  background: linear-gradient(to right, rgba(59, 130, 246, 0.2), rgba(99, 102, 241, 0.2)) !important;
+  border: 1px solid rgba(59, 130, 246, 0.5) !important;
+  color: #3b82f6 !important;
+  box-shadow: 0 6px 12px rgba(59, 130, 246, 0.2) !important;
+}
+
+/* 浅色模式下的时间元素 */
+body.light time {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* 浅色模式下的span元素 */
+body.light span {
+  color: var(--foreground);
+  font-weight: 500;
+}
+
+/* 浅色模式下的h1-h6标题 */
+body.light h1,
+body.light h2,
+body.light h3,
+body.light h4,
+body.light h5,
+body.light h6 {
+  color: var(--foreground);
+  font-weight: 700;
+}
+
+/* 浅色模式下的p元素 */
+body.light p {
+  color: var(--foreground);
+  font-weight: 500;
+  font-size: 16px;
+}
+
+/* 浅色模式下的标签 */
+body.light .bg-blue-900\/30 {
+  background: rgba(59, 130, 246, 0.1);
+  color: #3b82f6 !important;
+  font-weight: 500;
+}
+
+/* 浅色模式下的按钮样式 */
+body.light .btn-primary {
+  background: linear-gradient(90deg, #3b82f6, #6366f1);
+  color: white !important;
+  font-weight: 600;
+}
+
+body.light .btn-primary:hover {
+  background: linear-gradient(90deg, #2563eb, #4f46e5);
+  color: white !important;
+}
+
+/* 代码高亮样式 */
+pre {
+  background: #1e1e1e !important;
+  border-radius: 0.5rem;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Fira Code', 'Consolas', 'Monaco', 'Andale Mono', 'Ubuntu Mono', monospace;
+}
+
+/* 浅色模式代码高亮 */
+body.light pre {
+  background: #f6f8fa !important;
+}
+
+body.light code {
+  color: #24292e;
+}
+
+body.light .hljs {
+  background: #f6f8fa !important;
+  color: #24292e !important;
+}
+
+body.light .hljs-comment,
+body.light .hljs-quote {
+  color: #6a737d !important;
+}
+
+body.light .hljs-keyword,
+body.light .hljs-selector-tag,
+body.light .hljs-literal,
+body.light .hljs-section,
+body.light .hljs-link {
+  color: #d73a49 !important;
+}
+
+body.light .hljs-string,
+body.light .hljs-title,
+body.light .hljs-name,
+body.light .hljs-type,
+body.light .hljs-attribute,
+body.light .hljs-symbol,
+body.light .hljs-bullet,
+body.light .hljs-built_in,
+body.light .hljs-addition,
+body.light .hljs-variable,
+body.light .hljs-template-tag,
+body.light .hljs-template-variable {
+  color: #032f62 !important;
+}
+
+body.light .hljs-number,
+body.light .hljs-regexp,
+body.light .hljs-variable,
+body.light .hljs-template-variable,
+body.light .hljs-link,
+body.light .hljs-selector-attr,
+body.light .hljs-selector-pseudo {
+  color: #005cc5 !important;
+}
+
+body.light .hljs-meta,
+body.light .hljs-deletion {
+  color: #22863a !important;
+}
+
+body.light .hljs-emphasis {
+  font-style: italic !important;
+}
+
+body.light .hljs-strong {
+  font-weight: bold !important;
 }
 
 @theme inline {
@@ -31,7 +346,7 @@ body::before {
   left: 0;
   width: 100%;
   height: 100%;
-  background: radial-gradient(ellipse at center, #1a1a2e 0%, #16213e 100%);
+  background: #000000;
   z-index: -3;
 }
 
@@ -83,6 +398,46 @@ body::before {
   height: 100%;
   z-index: -1;
   pointer-events: none;
+}
+
+/* 流星效果 */
+.meteors {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.meteor {
+  position: absolute;
+  width: 2px;
+  height: 60px;
+  background: linear-gradient(90deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.8) 50%, rgba(255,255,255,0) 100%);
+  border-radius: 50%;
+  box-shadow: 0 0 10px 2px rgba(255, 255, 255, 0.8);
+  animation: meteor var(--duration, 3s) linear forwards;
+  transform-origin: top left;
+  transform: rotate(-30deg);
+}
+
+@keyframes meteor {
+  0% {
+    opacity: 0;
+    transform: translate(0, 0) rotate(-30deg);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translate(var(--end-x), var(--end-y)) rotate(-30deg);
+  }
 }
 
 @keyframes twinkle {
