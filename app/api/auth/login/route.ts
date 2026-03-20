@@ -209,9 +209,9 @@ export async function POST(request: NextRequest) {
     const userResponse: UserResponse = {
       id: user.id,
       username: user.username,
-      email: user.email,
-      phone: user.phone,
-      avatar: user.avatar,
+      email: user.email ?? undefined,
+      phone: user.phone ?? undefined,
+      avatar: user.avatar ?? undefined,
       emailVerified: user.emailVerified,
       phoneVerified: user.phoneVerified,
     };

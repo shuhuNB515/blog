@@ -33,7 +33,7 @@ model VerificationCode {
   id        String   @id @default(cuid())
   email     String?
   phone     String?
-  code      String   @length(6)
+  code      String
   expiresAt DateTime
   createdAt DateTime @default(now())
   
