@@ -8,8 +8,8 @@ import ReadingCounter from '@/app/components/ReadingCounter'
 export function generateStaticParams() {
   // 直接返回硬编码的路径，避免使用文件系统
   return [
-    { params: { id: 'nextjs-tips' } },
-    { params: { id: 'welcome' } }
+    { id: 'nextjs-tips' },
+    { id: 'welcome' }
   ]
 }
 
