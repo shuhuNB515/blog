@@ -54,8 +54,6 @@ export default function RootLayout({
                   <NavLink href="/tags" label="标签" />
                   <NavLink href="/search" label="搜索" />
                   <NavLink href="/about" label="关于" />
-                  <NavLink href="/auth/login" label="登录" />
-                  <NavLink href="/auth/profile" label="个人中心" />
                 </nav>
                 <ThemeToggle />
               </div>
