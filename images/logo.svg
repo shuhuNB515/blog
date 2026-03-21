@@ -1,0 +1,67 @@
+<svg width="400" height="400" viewBox="0 0 400 400" xmlns="http://www.w3.org/2000/svg">
+  <!-- 背景星星 -->
+  <defs>
+    <radialGradient id="bgGradient" cx="200" cy="200" r="200" fx="200" fy="200">
+      <stop offset="0%" stop-color="#0a0a1a" />
+      <stop offset="100%" stop-color="#16213e" />
+    </radialGradient>
+  </defs>
+  <rect width="400" height="400" fill="url(#bgGradient)" />
+  
+  <!-- 星星 -->
+  <circle cx="100" cy="100" r="2" fill="white" />
+  <circle cx="300" cy="100" r="2" fill="white" />
+  <circle cx="350" cy="150" r="2" fill="white" />
+  <circle cx="50" cy="150" r="2" fill="white" />
+  <circle cx="150" cy="50" r="2" fill="white" />
+  <circle cx="250" cy="50" r="2" fill="white" />
+  <circle cx="200" cy="200" r="2" fill="white" />
+  <circle cx="100" cy="300" r="2" fill="white" />
+  <circle cx="300" cy="300" r="2" fill="white" />
+  <circle cx="150" cy="350" r="2" fill="white" />
+  <circle cx="250" cy="350" r="2" fill="white" />
+  <circle cx="70" cy="70" r="2" fill="white" />
+  <circle cx="330" cy="70" r="2" fill="white" />
+  <circle cx="70" cy="330" r="2" fill="white" />
+  <circle cx="330" cy="330" r="2" fill="white" />
+  <circle cx="120" cy="120" r="2" fill="white" />
+  <circle cx="280" cy="120" r="2" fill="white" />
+  <circle cx="120" cy="280" r="2" fill="white" />
+  <circle cx="280" cy="280" r="2" fill="white" />
+  <circle cx="180" cy="180" r="2" fill="white" />
+  <circle cx="220" cy="180" r="2" fill="white" />
+  <circle cx="180" cy="220" r="2" fill="white" />
+  <circle cx="220" cy="220" r="2" fill="white" />
+  
+  <!-- 龙形 - 黑色填充 -->
+  <path d="M200 120 C180 140, 160 160, 150 190 C140 220, 140 250, 150 280 C160 310, 180 330, 200 350 C220 330, 240 310, 250 280 C260 250, 260 220, 250 190 C240 160, 220 140, 200 120 Z" 
+        fill="black" stroke="white" stroke-width="2" />
+  
+  <!-- 龙头 - 黑色填充 -->
+  <path d="M150 190 C140 180, 130 170, 120 160 C110 150, 100 140, 90 130 C80 120, 80 110, 90 100 C100 90, 110 90, 120 100 C130 110, 140 120, 150 130 C160 140, 170 150, 180 160 C190 170, 200 180, 200 190 C200 200, 190 210, 180 220 C170 230, 160 240, 150 250 C140 260, 130 270, 120 280 C110 290, 100 300, 90 310 C80 320, 80 330, 90 340 C100 350, 110 350, 120 340 C130 330, 140 320, 150 310 C160 300, 170 290, 180 280 C190 270, 200 260, 200 250 C200 240, 190 230, 180 220 C170 210, 160 200, 150 190 Z" 
+        fill="black" stroke="white" stroke-width="2" />
+  
+  <!-- 龙角 -->
+  <path d="M120 100 C110 80, 100 60, 90 50" fill="none" stroke="white" stroke-width="2" />
+  <path d="M130 100 C120 70, 110 50, 100 40" fill="none" stroke="white" stroke-width="2" />
+  
+  <!-- 龙须 -->
+  <path d="M150 130 C140 120, 130 110, 120 100" fill="none" stroke="white" stroke-width="1" />
+  
+  <!-- 龙鳞 -->
+  <path d="M170 170 C165 175, 165 185, 170 190 C175 185, 175 175, 170 170 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M190 170 C185 175, 185 185, 190 190 C195 185, 195 175, 190 170 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M210 170 C205 175, 205 185, 210 190 C215 185, 215 175, 210 170 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M230 170 C225 175, 225 185, 230 190 C235 185, 235 175, 230 170 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M170 210 C165 215, 165 225, 170 230 C175 225, 175 215, 170 210 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M190 210 C185 215, 185 225, 190 230 C195 225, 195 215, 190 210 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M210 210 C205 215, 205 225, 210 230 C215 225, 215 215, 210 210 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M230 210 C225 215, 225 225, 230 230 C235 225, 235 215, 230 210 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M170 250 C165 255, 165 265, 170 270 C175 265, 175 255, 170 250 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M190 250 C185 255, 185 265, 190 270 C195 265, 195 255, 190 250 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M210 250 C205 255, 205 265, 210 270 C215 265, 215 255, 210 250 Z" fill="none" stroke="white" stroke-width="1" />
+  <path d="M230 250 C225 255, 225 265, 230 270 C235 265, 235 255, 230 250 Z" fill="none" stroke="white" stroke-width="1" />
+  
+  <!-- 龙尾 -->
+  <path d="M200 350 C210 360, 220 370, 230 380 C240 390, 250 400, 260 410" fill="none" stroke="white" stroke-width="2" />
+</svg>
